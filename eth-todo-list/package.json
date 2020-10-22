@@ -1,0 +1,31 @@
+{
+  "name": "eth-todo-list",
+  "version": "1.0.0",
+  "description": "Blockchain Todo List Powered By Ethereum",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && sexit 1"
+  },
+  "author": "rosie-s",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "4.5.2",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "chai-bignumber": "3.0.0",
+    "lite-server": "2.5.4",
+    "nodemon": "2.0.4",
+    "truffle": "5.1.49",
+    "@truffle/contract": "4.2.23",
+    "solc-js": "1.0.1",
+    "solc": "0.7.1"
+  },
+  "dependencies": {
+    "jquery": "^1.9.1",
+    "popper.js": "^1.16.1"
+  }
+}
