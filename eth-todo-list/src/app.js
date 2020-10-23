@@ -56,7 +56,7 @@ App = {
         App.contracts.TodoList = TruffleContract(todoList)
         App.contracts.TodoList.setProvider(App.web3Provider)
 
-        // Hydrate the SC with calues from the BC
+        // Hydrate the SC with values from the BC
         App.todoList = await App.contracts.TodoList.deployed()
     },
 
@@ -111,6 +111,13 @@ App = {
             // Show the task
             $newTaskTemplate.show()
         }
+    },
+
+    createTask: async () => {
+        App.setLoading(true)
+        const content = $('#newTask').val()
+        await App.todoList.createTask(content, {from: App.account})
+        window.location.reload()
     },
 
     setLoading: (boolean) => {

@@ -8,13 +8,15 @@ contract TodoList {
 
     //Struct allows you to define your own data type
     struct Task {
-        uint256 id; // uint is used cause the value cant be negative
+        uint id; // uint is used cause the value cant be negative
         string content;
         bool completed;
     }
 
     //Store on blockchain
-    mapping(uint256 => Task) public tasks;
+    mapping(uint => Task) public tasks;
+
+    event TaskCreated(uint id, string content, bool completed);
 
     constructor() public {
         // Default task
@@ -22,7 +24,9 @@ contract TodoList {
     }
 
     function createTask(string memory _content) public {
-        taskCount ++;
+        taskCount++;
         tasks[taskCount] = Task(taskCount, _content, false);
+        // Broadcast event
+        emit TaskCreated(taskCount, _content, false);
     }
 }
