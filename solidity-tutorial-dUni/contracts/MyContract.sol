@@ -39,4 +39,23 @@ contract MyContract {
 
     // How to use the Struct
     MyStruct public myStruct = MyStruct(1, "Hello");
+
+    /* Arrays */
+    // Storing list of information in order
+    uint256[] public uintArray = [1, 2, 3];
+    string[] public stringArray = ["Apple", "Banana", "Pineapple"];
+    string[] public myArray;
+
+    // Add to arrays
+    function addValue(string memory _value) public {
+        myArray.push(_value);
+    }
+
+    // Length of Arrays
+    function valueCount() public view returns (uint256) {
+        return myArray.length;
+    }
+
+    // 2D Array
+    uint[][] public array2D = [[1,2,3], [4,5,6]];
 }
