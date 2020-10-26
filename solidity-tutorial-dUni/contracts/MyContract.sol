@@ -57,5 +57,44 @@ contract MyContract {
     }
 
     // 2D Array
-    uint[][] public array2D = [[1,2,3], [4,5,6]];
+    uint256[][] public array2D = [[1, 2, 3], [4, 5, 6]];
+
+    /* Mappings */
+    // Key-Value store
+    mapping(int256 => string) public names;
+
+    // DB of books
+    struct Book {
+        string title;
+        string Author;
+    }
+
+    // Mapping of Books
+    mapping(uint256 => Book) public books;
+
+    function addBook(
+        uint256 _id,
+        string memory _title,
+        string memory _author
+    ) public {
+        books[_id] = Book(_title, _author);
+    }
+
+    // Nested Mappings
+    mapping(address => mapping(uint256 => Book)) public myBooks;
+
+    function addMyBook(
+        uint256 _id,
+        string memory _title,
+        string memory _author
+    ) public {
+        // msg.sender:  Capture address of person calling the function
+        myBooks[msg.sender][_id] = Book(_title, _author);
+    }
+
+    constructor() public {
+        names[1] = "Andrew";
+        names[2] = "Bill";
+        names[3] = "Carl";
+    }
 }
