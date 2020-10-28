@@ -30,7 +30,7 @@ contract MyContract2 {
 
     // address public myAddress = 0x827de34013d0d21ed24E550CfB6cAF79d880cfBC;
 
-    constructor() public {
+    constructor() {
         owner = msg.sender;
         // owner = myAddress;
     }
